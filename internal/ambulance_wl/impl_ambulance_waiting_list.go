@@ -2,7 +2,7 @@ package ambulance_wl
 
 import (
   "net/http"
-
+  "time"
   "github.com/gin-gonic/gin"
   "github.com/google/uuid"
   "slices"
@@ -132,7 +132,7 @@ func (this *implAmbulanceWaitingListAPI) GetWaitingListEntry(ctx *gin.Context) {
 
 // UpdateWaitingListEntry - Updates specific entry
 func (this *implAmbulanceWaitingListAPI) UpdateWaitingListEntry(ctx *gin.Context) {
-  c    updateAmbulanceFunc(ctx, func(c *gin.Context, ambulance *Ambulance) (*Ambulance, interface{}, int) {
+  updateAmbulanceFunc(ctx, func(c *gin.Context, ambulance *Ambulance) (*Ambulance, interface{}, int) {
     var entry WaitingListEntry
 
     if err := c.ShouldBindJSON(&entry); err != nil {
